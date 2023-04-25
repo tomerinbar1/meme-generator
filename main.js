@@ -1,7 +1,12 @@
 'use strict'
 
+let gElCanvas
+let gCtx
+
 function onInit() {
   renderGallery()
+  gElCanvas = document.getElementById('my-canvas')
+  gCtx = gElCanvas.getContext('2d')
 }
 
 function onOpenEditor() {
@@ -12,13 +17,12 @@ function onOpenEditor() {
 }
 
 function onOpenGallery() {
-    const elGallery = document.querySelector('.gallery-page-wrapper')
-    const elEditor = document.querySelector('.editor-page-wrapper')
-    elEditor.style.display = 'none'
-    elGallery.style.display = 'block'
-  }
-  
+  const elGallery = document.querySelector('.gallery-page-wrapper')
+  const elEditor = document.querySelector('.editor-page-wrapper')
+  elEditor.style.display = 'none'
+  elGallery.style.display = 'block'
+}
 
-  function onOpenImgInCanvas(imgId) {
-OpenImgInCanvas(imgId)
-  }
+function onOpenImgInCanvas(imgId) {
+  openImgInCanvas(imgId)
+}
