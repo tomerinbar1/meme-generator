@@ -5,40 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Meme Generator</title>
 </head>
 
-<body>
-
-    <div class="main-container">
-
-        <header class="gallery-page">
-            <div class="nav">
-                <h2>LOGO</h2>
-                <button>Gallery</button>
-                <button>Memes</button>
-                <button>About</button>
+<body onload="onInit()">
+    <div class="header site-layout">
+        <div class="navbar-wrapper layout-screen">
+            <div class="logo">Tomer Meme Generator<span>.</span></div>
+            <ul class="remove-list navbar">
+                <li onclick="onOpenEditor()"><span>Meme</span></li>
+                <li onclick="onOpenGallery()"><span>Gallery</span></li>
+                <li><span>About</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="site-layout">
+        <section class="editor-page-wrapper" hidden>
+            <div class="editor-page">
+            <div class="canvas-container">
+                <canvas height="500" width="500"></canvas>
             </div>
-
-            <section class="filter">
-                <input type="text" name="" id="" placeholder="Search">
-                <div class="commom">
-                    <h2>Funny</h2>
-                    <h3>Animal</h3>
-                    <h4>Men</h4>
-                    <h5>Women</h5>
-                    <h6>Smile</h6>
-                    <button>More</button>
-                </div>
-            </section>
-
-            <div class="gallery">
-
-            </div>
-        </header>
-
-        <div class="editor-page">
             <div class="meme-editor">
                 <input type="text" name="" id="" placeholder="Text Line">
                 <div class="textSelect">
@@ -67,16 +54,22 @@
                 <a href="">Share</a>
 
             </div>
-            <canvas height="500" width="500"></canvas>
         </div>
+        </section>
 
-        <footer>
-            <h4>all right reseved to Tomer Inbar</h4>
-        </footer>
+        <section class="gallery-page-wrapper">
+            <div class="gallery"></div>
+        </section>
     </div>
-
-
-
+    <footer class="footer">
+        <div>
+            <h4>all right reseved to Tomer Inbar</h4>
+        </div>
+    </footer>
+    
+    <script src="/js/gallery/galleryService.js"></script>
+    <script src="/js/gallery/galleryController.js"></script>
+    <script src="/js/meme/memeController.js"></script>
     <script src="main.js"></script>
 </body>
 

@@ -1,0 +1,15 @@
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  /* max-width: 1280px; */
+  padding: 0;
+  margin: 32px auto;  
+  list-style-type: none;
+  overflow-y: scroll;
+  height: 600px;
+}
+  
+.gallery-grid li {
+  aspect-ratio: 4 / 3;
+}
