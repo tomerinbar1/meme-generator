@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,76 @@
     <link rel="stylesheet" href="style.css">
     <title>Meme Generator</title>
 </head>
+
 <body>
-    
+
+    <div class="main-container">
+
+        <header class="gallery-page">
+            <div class="nav">
+                <h2>LOGO</h2>
+                <button>Gallery</button>
+                <button>Memes</button>
+                <button>About</button>
+            </div>
+
+            <section class="filter">
+                <input type="text" name="" id="" placeholder="Search">
+                <div class="commom">
+                    <h2>Funny</h2>
+                    <h3>Animal</h3>
+                    <h4>Men</h4>
+                    <h5>Women</h5>
+                    <h6>Smile</h6>
+                    <button>More</button>
+                </div>
+            </section>
+
+            <div class="gallery">
+
+            </div>
+        </header>
+
+        <div class="editor-page">
+            <div class="meme-editor">
+                <input type="text" name="" id="" placeholder="Text Line">
+                <div class="textSelect">
+                    <button>Line Up</button>
+                    <button>Line Down</button>
+                    <button>Add Text</button>
+                    <button>Delete</button>
+                </div>
+                <div class="textSet">
+                    <button>+</button>
+                    <button>-</button>
+                    <button>L</button>
+                    <button>C</button>
+                    <button>R</button>
+                </div>
+                <div class="textFontColor">
+                    <select name="" id="">
+                        <option value="" selected="true" disabled="disabled">Font</option>
+                        <option value="impact">Impact</option>
+                    </select>
+                    <input type="color" name="" id="stroke">
+                    <input type="color" name="" id="fill">
+                </div>
+                <div class="emojis"></div>
+                <a href="">Download</a>
+                <a href="">Share</a>
+
+            </div>
+            <canvas height="500" width="500"></canvas>
+        </div>
+
+        <footer>
+            <h4>all right reseved to Tomer Inbar</h4>
+        </footer>
+    </div>
+
+
 
     <script src="main.js"></script>
 </body>
+
 </html>
