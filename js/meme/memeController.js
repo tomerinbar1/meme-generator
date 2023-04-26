@@ -5,11 +5,20 @@ function openImgInCanvas(imgId) {
   const imgs = createImages()
   const getImage = imgs.find(img => String(img.id).trim() === imgIdStr.trim())
   const imageUrl = getImage.url
-  drawImg(imageUrl)
+  renderCanvas(imageUrl)
   onOpenEditor()
 }
 
-function drawImg(img) {
+function onWriteText(txt) {
+  setLineTxt(txt)
+  
+  gCtx.font = '60px Comic Sans MS'
+  gCtx.fillStyle = 'blue'
+  gCtx.textAlign = 'center'
+  // gCtx.fillText(txt, gElCanvas.width / 4, gElCanvas.height / 4)
+}
+
+function renderCanvas(img) {
   const elImg = new Image()
   elImg.src = img
   elImg.onload = () => {
