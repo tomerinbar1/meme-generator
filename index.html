@@ -27,27 +27,29 @@
                 <canvas id="my-canvas" height="500" width="500"></canvas>
             </div>
             <div class="meme-editor">
-                <input oninput="onSetLineTxt(this.value)" type="text" name="" id="textInput" placeholder="Text Line">
+                <input oninput="onSetLineTxt(this.value)" type="text" name="" class="textInput" placeholder="Text Line">
                 <div class="textSelect">
-                    <button>Line Up</button>
-                    <button>Line Down</button>
-                    <button>Add Text</button>
-                    <button onclick="clearCanvas()">Delete</button>
+                    <button onclick="onSwitchLine()">Switch Line</button>
+                    <button onclick="onMoveUp()">Line Up</button>
+                    <button onclick="onMoveDown()">Line Down</button>
+                    <button onclick="onaddLine()">Add Text</button>
+                    <button onclick="onDeleteText()">Delete</button>
                 </div>
                 <div class="textSet">
                     <button onclick="onIncreaseSize()">+</button>
                     <button onclick="onDecreaseSize()">-</button>
-                    <button>L</button>
-                    <button>C</button>
-                    <button>R</button>
+                    <button onclick="onRightAlign()">L</button>
+                    <button onclick="onCenterAlign()">C</button>
+                    <button onclick="onLeftAlign()">R</button>
                 </div>
                 <div class="textFontColor">
                     <select name="" id="">
                         <option value="" selected="true" disabled="disabled">Font</option>
                         <option value="impact">Impact</option>
+                        <option value="serif">Serif</option>
                     </select>
-                    <input type="color" name="" id="stroke">
-                    <input type="color" name="" id="fill">
+                    <input oninput="onChangeTextColor(this.value)" type="color" value="#FFFFFF" id="fill">
+                    <input oninput="onChangeStroke(this.value)" type="color" value="#00000" id="stroke">
                 </div>
                 <div class="emojis"></div>
                 <a href="">Download</a>
