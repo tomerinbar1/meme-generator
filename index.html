@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Meme Generator</title>
 </head>
 
@@ -27,7 +27,7 @@
                 <canvas id="my-canvas" height="500" width="500"></canvas>
             </div>
             <div class="meme-editor">
-                <input oninput="onWriteText(this.value)" type="text" name="" id="textInput" placeholder="Text Line">
+                <input oninput="onSetLineTxt(this.value)" type="text" name="" id="textInput" placeholder="Text Line">
                 <div class="textSelect">
                     <button>Line Up</button>
                     <button>Line Down</button>
@@ -35,8 +35,8 @@
                     <button onclick="clearCanvas()">Delete</button>
                 </div>
                 <div class="textSet">
-                    <button>+</button>
-                    <button>-</button>
+                    <button onclick="onIncreaseSize()">+</button>
+                    <button onclick="onDecreaseSize()">-</button>
                     <button>L</button>
                     <button>C</button>
                     <button>R</button>
