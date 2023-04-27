@@ -38,6 +38,7 @@
 .navbar li:hover {
     color: var(--clr4);
     box-shadow: -1px 0 0 #1d1d1d, inset 0 -6px 0 #58c93a;
+    transition: 600ms;
 }
 
 .navbar li span {
@@ -54,4 +55,15 @@
     background-color: var(--clr2);
     color: var(--clr1);
     align-items: center;
+}
+
+.logo{
+    padding-left: 20px;
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 48px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    color: white;
 }

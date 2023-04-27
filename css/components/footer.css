@@ -1,10 +1,15 @@
 .footer {
-  background-color: lightblue;
-  height: 70px;
+  background-color: rgb(0, 0, 0);
+  color: var(--clr14);
+  height: 50px;
   width: 100%;
+  font-family: lato;
+  font-weight: 400;
   position: absolute;
   bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  letter-spacing: 0.39px;
+  font-size: 0.8125em;
 }

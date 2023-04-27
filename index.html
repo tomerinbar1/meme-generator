@@ -13,7 +13,7 @@
 <body onload="onInit()">
     <div class="header site-layout">
         <div class="navbar-wrapper layout-screen">
-            <div class="logo">Tomer Meme Generator<span>.</span></div>
+            <div class="logo">Meme Generator</div>
             <ul class="remove-list navbar">
                 <li onclick="onOpenEditor()"><span>Meme</span></li>
                 <li onclick="onOpenGallery()"><span>Gallery</span></li>
@@ -30,31 +30,33 @@
                 <div class="meme-editor">
                     <input oninput="onSetLineTxt(this.value)" type="text" name="" class="textInput" placeholder="Text Line">
                     <div class="textSelect">
-                        <button onclick="onSwitchLine()" class="fa-solid fa-repeat"></button>
-                        <button onclick="onMoveUp()" class="fa-solid fa-arrow-up"></button>
-                        <button onclick="onMoveDown()" class="fa-solid fa-arrow-down" ></button>
-                        <button onclick="onaddLine()">Add Text</button>
-                        <button onclick="onDeleteText()" class="fa-sharp fa-solid fa-trash"></button>
+                        <button onclick="onSwitchLine()" class="edit-btn fa-solid fa-repeat remove-button-style"></button>
+                        <button onclick="onMoveUp()" class="edit-btn fa-solid fa-arrow-up remove-button-style" ></button>
+                        <button onclick="onMoveDown()" class="edit-btn fa-solid fa-arrow-down remove-button-style" ></button>
+                        <button onclick="onaddLine()" class="edit-btn remove-button-style">Add Text</button>
+                        <button onclick="onDeleteText()" class="edit-btn fa-sharp fa-solid fa-trash remove-button-style"></button>
                     </div>
                     <div class="textSet">
-                        <button onclick="onIncreaseSize()" class="fa-solid fa-plus"></button>
-                        <button onclick="onDecreaseSize()" class="fa-solid fa-minus"></button>
-                        <button onclick="onRightAlign()" class="fa-solid fa-align-left"></button>
-                        <button onclick="onCenterAlign()" class="fa-solid fa-align-center"></button>
-                        <button onclick="onLeftAlign()" class="fa-solid fa-align-right"></button>
+                        <button onclick="onIncreaseSize()" class="edit-btn fa-solid fa-plus remove-button-style" ></button>
+                        <button onclick="onDecreaseSize()" class="edit-btn fa-solid fa-minus remove-button-style"></button>
+                        <button onclick="onRightAlign()" class="edit-btn fa-solid fa-align-left remove-button-style"></button>
+                        <button onclick="onCenterAlign()" class="edit-btn fa-solid fa-align-center remove-button-style"></button>
+                        <button onclick="onLeftAlign()" class="edit-btn fa-solid fa-align-right remove-button-style" ></button>
                     </div>
                     <div class="textFontColor">
-                        <select name="" id="">
+                        <select name="" class="fontSelector">
                             <option value="" selected="true" disabled="disabled">Font</option>
                             <option value="impact">Impact</option>
                             <option value="serif">Serif</option>
                         </select>
-                        <input oninput="onChangeTextColor(this.value)" type="color" value="#FFFFFF" id="fill">
-                        <input oninput="onChangeStroke(this.value)" type="color" value="#00000" id="stroke">
+                        <input oninput="onChangeTextColor(this.value)" class="remove-button-style palette" type="color" value="#FFFFFF" id="fill">
+                        <input oninput="onChangeStroke(this.value)" class="remove-button-style palette" type="color" value="#00000" id="stroke">
                     </div>
                     <div class="emojis"></div>
-                    <a href="#" onclick="downloadImg(this)" download="my-img.jpg" class="fa-solid fa-download"></a>
-                    <a href="#" onclick="onUploadImg()" class="fa-brands fa-facebook"></a>
+                    <div class="a-btn">
+                        <a href="#" onclick="downloadImg(this)" download="my-img.jpg" class="fa-solid fa-download"></a>
+                        <a href="#" onclick="onUploadImg()" class="fa-brands fa-facebook"></a>
+                    </div>
 
                 </div>
             </div>

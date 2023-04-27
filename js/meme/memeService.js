@@ -96,7 +96,7 @@ function moveUp() {
   gMeme.lines[gMeme.selectedLineIdx].pos.y -= 10
 }
 function moveDown() {
-  gMeme.lines[gMeme.selectedLineIdx].pos.x += 10
+  gMeme.lines[gMeme.selectedLineIdx].pos.y += 10
 }
 
 function addLine() {

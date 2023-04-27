@@ -3,10 +3,12 @@ html{
 }
 
 body {
+  position: relative;
   padding: 0;
   height: 100%;
   margin: 0 auto;
   overflow-y: hidden;
+  background-image: url('/img/background.jpg');
 }
 
 img {

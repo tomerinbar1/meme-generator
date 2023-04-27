@@ -1,0 +1,28 @@
+@media screen and (max-width: 460px) {
+  .editor-page {
+    flex-direction: column;
+  }
+  .canvas-container{
+    width: 100%;
+    margin-top: 0;
+  }
+  .logo{
+    font-size: 22px;
+    padding-left: 10px;
+  }
+  .navbar-wrapper{
+    height: 10px;
+    padding-top: 20px;
+  }
+  .gallery-grid{
+    grid-column: 1;
+    gap: 10px;
+    margin: 20px auto;
+  }
+  .editor-page{
+    gap: 20px;
+  }
+  .meme-editor{
+    margin: 0 auto;
+  }
+}

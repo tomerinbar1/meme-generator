@@ -4,10 +4,10 @@
   gap: 20px;
   /* max-width: 1280px; */
   padding: 0;
-  margin: 32px auto;  
+  margin: 32px 50px;  
   list-style-type: none;
-  overflow-y: scroll;
-  height: 600px;
+  overflow-y:scroll;
+  max-height: calc(100vh - 200px);
 }
   
 .gallery-grid li {
