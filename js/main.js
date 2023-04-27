@@ -30,12 +30,6 @@ function addTouchListeners() {
   gElCanvas.addEventListener('touchend', onUp)
 }
 
-// function resizeCanvas() {
-//   const elContainer = document.querySelector('.canvas-container')
-//   gElCanvas.width = elContainer.offsetWidth
-//   gElCanvas.height = elContainer.offsetHeight
-// }
-
 function onOpenEditor() {
   const elGallery = document.querySelector('.gallery-page-wrapper')
   const elEditor = document.querySelector('.editor-page-wrapper')
@@ -62,7 +56,7 @@ function renderCanvas() {
 }
 
 function renderGallery() {
-  const imgs = getImgs() // GET DATA FROM SERVICE
+  const imgs = getImgs()
   const elGallery = document.querySelector('.gallery')
   const imgsStr = imgs.map(img => {
     return `<li onClick="onSetImg(${img.id})"><img src="${img.url}"/></li>`

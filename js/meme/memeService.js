@@ -113,39 +113,25 @@ function deleteText() {
 }
 
 function getEvPos(ev) {
-  // Gets the offset pos , the default pos
   let pos = {
     x: ev.offsetX,
     y: ev.offsetY,
   }
-  // console.log('pos:', pos)
-  // Check if its a touch ev
+
   if (TOUCH_EVS.includes(ev.type)) {
-    //soo we will not trigger the mouse ev
     ev.preventDefault()
-    //Gets the first touch point
     ev = ev.changedTouches[0]
-    //Calc the right pos according to the touch screen
-    // console.log('ev.pageX:', ev.pageX)
-    // console.log('ev.pageY:', ev.pageY)
     pos = {
       x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
       y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
     }
-    // console.log('pos:', pos)
   }
   return pos
 }
 
-
 function isLineClicked(clickedPos) {
-  console.log(clickedPos);
   const pos = gMeme.lines[gMeme.selectedLineIdx].pos
-  console.log(pos);
-  // Calc the distance between two dots
   const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
-  console.log('distance', distance)
-  //If its smaller then the radius of the circle we are inside
   return distance === gMeme.lines[gMeme.selectedLineIdx].size
 }
 
@@ -154,8 +140,6 @@ function setLineDrag(isDrag) {
 }
 
 function moveLine(dx, dy) {
-  // console.log('dx:', dx)
-  // console.log('dy:', dy)
   const meme = getMeme()
   meme.lines[meme.selectedLineIdx].pos.x += dx
   meme.lines[meme.selectedLineIdx].pos.y += dy

@@ -6,7 +6,7 @@ function onSetLineTxt(txt) {
 }
 
 function onSetImg(imgId) {
-  setImg(imgId) // SET DATA TO SERVICE
+  setImg(imgId)
   onOpenEditor()
   const elInput = document.querySelector('.textInput')
   const meme = getMeme()
@@ -74,39 +74,26 @@ function onDeleteText() {
 }
 
 function onDown(ev) {
-  // Get the ev pos from mouse or touch
   const pos = getEvPos(ev)
-
   if (isLineClicked(pos)) return
-  console.log('Down')
-
   setLineDrag(true)
-  //Save the pos we start from
-
   gStartPos = pos
-  console.log(gStartPos);
   document.body.style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
   const meme = getMeme()
   const isDrag = meme.lines[meme.selectedLineIdx].isDrag
-
   if (!isDrag) return
-  // console.log('Move')
-
   const pos = getEvPos(ev)
-
   const dx = pos.x - gStartPos.x
   const dy = pos.y - gStartPos.y
-  // console.log(dx, dy)
   moveLine(dx, dy)
   gStartPos = pos
   renderCanvas()
 }
 
 function onUp() {
-  // console.log('Up')
   setLineDrag(false)
   document.body.style.cursor = 'grab'
 }
