@@ -2,12 +2,39 @@
 
 let gElCanvas
 let gCtx
+let gStartPos
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 function onInit() {
-  gElCanvas = document.getElementById('my-canvas')
+  gElCanvas = document.querySelector('.responsive-canvas')
   gCtx = gElCanvas.getContext('2d')
   renderGallery()
+  addListeners()
+  renderCanvas()
 }
+
+function addListeners() {
+  addMouseListeners()
+  addTouchListeners()
+}
+
+function addMouseListeners() {
+  gElCanvas.addEventListener('mousedown', onDown)
+  gElCanvas.addEventListener('mousemove', onMove)
+  gElCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+  gElCanvas.addEventListener('touchstart', onDown)
+  gElCanvas.addEventListener('touchmove', onMove)
+  gElCanvas.addEventListener('touchend', onUp)
+}
+
+// function resizeCanvas() {
+//   const elContainer = document.querySelector('.canvas-container')
+//   gElCanvas.width = elContainer.offsetWidth
+//   gElCanvas.height = elContainer.offsetHeight
+// }
 
 function onOpenEditor() {
   const elGallery = document.querySelector('.gallery-page-wrapper')
@@ -24,7 +51,7 @@ function onOpenGallery() {
 }
 
 function renderCanvas() {
-  const meme = getMeme() // GET DATA FROM SERVICE
+  const meme = getMeme()
   const img = new Image()
   img.src = `./img/${meme.selectedImgId}.jpg`
   img.onload = () => {
@@ -55,8 +82,8 @@ function drawText(lines) {
     gCtx.strokeStyle = `${line.strokeStyle}`
     gCtx.fillStyle = `${line.color}`
     gCtx.lineWidth = 3
-    gCtx.fillText(line.txt, line.posX, line.posY)
-    gCtx.strokeText(line.txt, line.posX, line.posY)
+    gCtx.fillText(line.txt, line.pos.x, line.pos.y)
+    gCtx.strokeText(line.txt, line.pos.x, line.pos.y)
   })
 }
 
@@ -65,8 +92,8 @@ function markLine() {
   meme.lines.map((line, idx) => {
     if (idx === gMeme.selectedLineIdx) {
       gCtx.beginPath()
-      var rectY = line.posY - line.size
-      var rectX = line.posX - line.txtWidth / 2
+      var rectY = line.pos.y - line.size
+      var rectX = line.pos.x - line.txtWidth / 2
       var rectWidth = line.txtWidth
       var rectHeight = 1.5 * line.size
       gCtx.lineWidth = 3
@@ -77,4 +104,5 @@ function markLine() {
   })
 }
 
-//! TODO finish the markLine bug when load an image.
+//* TODO finish the markLine bug when load an image.
+//* TODO finish the responsivness of the Canvas

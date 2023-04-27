@@ -11,8 +11,8 @@ const gMeme = {
       color: 'white',
       font: 'impact',
       strokeStyle: 'black',
-      posX: 250,
-      posY: 100,
+      pos: {x: 250, y: 100},
+      isDrag: false
     },
     {
       txt: 'but I love Pizza!',
@@ -21,8 +21,8 @@ const gMeme = {
       color: 'white',
       font: 'impact',
       strokeStyle: 'black',
-      posX: 250,
-      posY: 400,
+      pos: {x: 250, y: 400},
+      isDrag: false
     },
   ],
 }
@@ -35,8 +35,8 @@ function createLine() {
     color: 'white',
     font: 'impact',
     strokeStyle: 'black',
-    posX: 250,
-    posY: 250,
+    pos: {x: 250, y: 250},
+    isDrag: false
   }
 }
 
@@ -110,4 +110,50 @@ function addLine() {
 
 function deleteText() {
   gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+}
+
+function getEvPos(ev) {
+  // Gets the offset pos , the default pos
+  let pos = {
+    x: ev.offsetX,
+    y: ev.offsetY,
+  }
+  // console.log('pos:', pos)
+  // Check if its a touch ev
+  if (TOUCH_EVS.includes(ev.type)) {
+    //soo we will not trigger the mouse ev
+    ev.preventDefault()
+    //Gets the first touch point
+    ev = ev.changedTouches[0]
+    //Calc the right pos according to the touch screen
+    // console.log('ev.pageX:', ev.pageX)
+    // console.log('ev.pageY:', ev.pageY)
+    pos = {
+      x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+      y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+    }
+    // console.log('pos:', pos)
+  }
+  return pos
+}
+
+
+function isLineClicked(clickedPos) {
+  // console.log('posX:', posX, 'posY:', posY, 'elLine', textElement)
+
+  const textWidth = textElement.offsetWidth;
+  const textHeight = textElement.offsetHeight;
+  const textPosX = textElement.offsetLeft;
+  const textPosY = textElement.offsetTop;
+  
+  if (posX >= textPosX && posX <= textPosX + textWidth &&
+      posY >= textPosY && posY <= textPosY + textHeight) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function setLineDrag(isDrag) {
+  gMeme.lines[selectedLineIdx].isDrag = isDrag
 }

@@ -1,11 +1,7 @@
 .editor-page{
     display: flex;
     justify-content: space-evenly;
+    position: relative;
     align-items: center;
-    height: 700px;
-}
-
-canvas {
-    border: 1px solid black;
-
+    height: 600px;
 }
