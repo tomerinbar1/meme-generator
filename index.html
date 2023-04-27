@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/4eea59ca86.js" crossorigin="anonymous"></script>
     <title>Meme Generator</title>
 </head>
 
@@ -30,18 +30,18 @@
                 <div class="meme-editor">
                     <input oninput="onSetLineTxt(this.value)" type="text" name="" class="textInput" placeholder="Text Line">
                     <div class="textSelect">
-                        <button onclick="onSwitchLine()">Switch Line</button>
-                        <button onclick="onMoveUp()">Line Up</button>
-                        <button onclick="onMoveDown()">Line Down</button>
+                        <button onclick="onSwitchLine()" class="fa-solid fa-repeat"></button>
+                        <button onclick="onMoveUp()" class="fa-solid fa-arrow-up"></button>
+                        <button onclick="onMoveDown()" class="fa-solid fa-arrow-down" ></button>
                         <button onclick="onaddLine()">Add Text</button>
-                        <button onclick="onDeleteText()">Delete</button>
+                        <button onclick="onDeleteText()" class="fa-sharp fa-solid fa-trash"></button>
                     </div>
                     <div class="textSet">
-                        <button onclick="onIncreaseSize()">+</button>
-                        <button onclick="onDecreaseSize()">-</button>
-                        <button onclick="onRightAlign()">L</button>
-                        <button onclick="onCenterAlign()">C</button>
-                        <button onclick="onLeftAlign()">R</button>
+                        <button onclick="onIncreaseSize()" class="fa-solid fa-plus"></button>
+                        <button onclick="onDecreaseSize()" class="fa-solid fa-minus"></button>
+                        <button onclick="onRightAlign()" class="fa-solid fa-align-left"></button>
+                        <button onclick="onCenterAlign()" class="fa-solid fa-align-center"></button>
+                        <button onclick="onLeftAlign()" class="fa-solid fa-align-right"></button>
                     </div>
                     <div class="textFontColor">
                         <select name="" id="">
@@ -53,8 +53,8 @@
                         <input oninput="onChangeStroke(this.value)" type="color" value="#00000" id="stroke">
                     </div>
                     <div class="emojis"></div>
-                    <a href="">Download</a>
-                    <a href="">Share</a>
+                    <a href="" class="fa-solid fa-download"></a>
+                    <a href="" class="fa-sharp fa-solid fa-share-nodes"></a>
 
                 </div>
             </div>

@@ -1,13 +1,13 @@
 .canvas-container {
-    display: flex;
-    position: relative;
-    margin-top: 100px;
-    flex-direction: column-reverse;
-    width: 30%;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  flex-direction: column-reverse;
+  width: 30%;
+}
 
 .responsive-canvas {
   width: 100%;
-    border: 1px solid black;
-  }
-
+  border: 1px solid black;
+}
