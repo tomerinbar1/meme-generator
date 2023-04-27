@@ -93,10 +93,10 @@ function rightAlign() {
 }
 
 function moveUp() {
-  gMeme.lines[gMeme.selectedLineIdx].posY -= 10
+  gMeme.lines[gMeme.selectedLineIdx].pos.y -= 10
 }
 function moveDown() {
-  gMeme.lines[gMeme.selectedLineIdx].posY += 10
+  gMeme.lines[gMeme.selectedLineIdx].pos.x += 10
 }
 
 function addLine() {
@@ -139,21 +139,24 @@ function getEvPos(ev) {
 
 
 function isLineClicked(clickedPos) {
-  // console.log('posX:', posX, 'posY:', posY, 'elLine', textElement)
-
-  const textWidth = textElement.offsetWidth;
-  const textHeight = textElement.offsetHeight;
-  const textPosX = textElement.offsetLeft;
-  const textPosY = textElement.offsetTop;
-  
-  if (posX >= textPosX && posX <= textPosX + textWidth &&
-      posY >= textPosY && posY <= textPosY + textHeight) {
-    return true;
-  } else {
-    return false;
-  }
+  console.log(clickedPos);
+  const pos = gMeme.lines[gMeme.selectedLineIdx].pos
+  console.log(pos);
+  // Calc the distance between two dots
+  const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
+  console.log('distance', distance)
+  //If its smaller then the radius of the circle we are inside
+  return distance === gMeme.lines[gMeme.selectedLineIdx].size
 }
 
 function setLineDrag(isDrag) {
-  gMeme.lines[selectedLineIdx].isDrag = isDrag
+  gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
+}
+
+function moveLine(dx, dy) {
+  // console.log('dx:', dx)
+  // console.log('dy:', dy)
+  const meme = getMeme()
+  meme.lines[meme.selectedLineIdx].pos.x += dx
+  meme.lines[meme.selectedLineIdx].pos.y += dy
 }

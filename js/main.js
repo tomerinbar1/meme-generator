@@ -103,6 +103,3 @@ function markLine() {
     }
   })
 }
-
-//* TODO finish the markLine bug when load an image.
-//* TODO finish the responsivness of the Canvas
