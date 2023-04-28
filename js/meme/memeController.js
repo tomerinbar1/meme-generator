@@ -1,99 +1,100 @@
 'use strict'
 
 function onSetLineTxt(txt) {
-  setLineTxt(txt)
-  renderCanvas()
+    setLineTxt(txt)
+    renderCanvas()
 }
 
 function onSetImg(imgId) {
-  setImg(imgId)
-  onOpenEditor()
-  const elInput = document.querySelector('.textInput')
-  const meme = getMeme()
-  elInput.value = meme.lines[meme.selectedLineIdx].txt
-  renderCanvas()
+    setImg(imgId)
+    onOpenEditor()
+    renderInputValue()
+    renderCanvas()
+}
+
+function renderInputValue() {
+    const elInput = document.querySelector('.textInput')
+    const meme = getMeme()
+    if (!meme.lines.length) {
+        elInput.value = ''
+
+        return
+    }
+    elInput.value = meme.lines[meme.selectedLineIdx].txt
 }
 
 function onIncreaseSize() {
-  increaseSize()
-  renderCanvas()
+    increaseSize()
+    renderCanvas()
 }
 
 function onDecreaseSize() {
-  decreaseSize()
-  renderCanvas()
+    decreaseSize()
+    renderCanvas()
 }
 
 function onChangeTextColor(txtColor) {
-  changeTextColor(txtColor)
-  renderCanvas()
+    changeTextColor(txtColor)
+    renderCanvas()
 }
 
 function onChangeStroke(strokeColor) {
-  changeStroke(strokeColor)
-  renderCanvas()
+    changeStroke(strokeColor)
+    renderCanvas()
 }
 
 function onSwitchLine() {
-  switchLine()
-  renderCanvas()
+    switchLine()
+    renderCanvas()
 }
 
-function onLeftAlign() {
-  leftAlign()
-  renderCanvas()
-}
-
-function onCenterAlign() {
-  centerAlign()
-  renderCanvas()
-}
-
-function onRightAlign() {
-  rightAlign()
-  renderCanvas()
+function onChangeAlign(dir) {
+    changeAlign(dir, gElCanvas.width)
+    renderCanvas()
 }
 
 function onMoveUp() {
-  moveUp()
-  renderCanvas()
+    moveUp()
+    renderCanvas()
 }
+
 function onMoveDown() {
-  moveDown()
-  renderCanvas()
+    moveDown()
+    renderCanvas()
 }
 
 function onaddLine() {
-  addLine()
-  renderCanvas()
+    addLine()
+    renderCanvas()
 }
 
 function onDeleteText() {
-  deleteText()
-  renderCanvas()
+    deleteText()
+    renderInputValue()
+    renderCanvas()
 }
 
 function onDown(ev) {
-  const pos = getEvPos(ev)
-  if (isLineClicked(pos)) return
-  setLineDrag(true)
-  gStartPos = pos
-  document.body.style.cursor = 'grabbing'
+    const pos = getEvPos(ev)
+    if (!isLineClicked(pos)) return
+    setLineDrag(true)
+    gStartPos = pos
+    document.body.style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
-  const meme = getMeme()
-  const isDrag = meme.lines[meme.selectedLineIdx].isDrag
-  if (!isDrag) return
-  const pos = getEvPos(ev)
-  const dx = pos.x - gStartPos.x
-  const dy = pos.y - gStartPos.y
-  moveLine(dx, dy)
-  gStartPos = pos
-  renderCanvas()
+    const meme = getMeme()
+    const isDrag = meme.lines[meme.selectedLineIdx].isDrag
+    if (!isDrag) return
+    const pos = getEvPos(ev)
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveLine(dx, dy)
+    gStartPos = pos
+    renderCanvas()
 }
 
 function onUp() {
-  setLineDrag(false)
-  document.body.style.cursor = 'grab'
+    setLineDrag(false)
+    document.body.style.cursor = 'grab'
 }

@@ -1,9 +1,8 @@
 .editor-page {
   display: flex;
   justify-content: center;
-  position: relative;
   align-items: center;
-  height: 80vh;
+  margin-block-start: 50px;
 }
 
 .meme-editor {

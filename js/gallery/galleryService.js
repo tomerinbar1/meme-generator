@@ -19,6 +19,13 @@ const gImgs = [
     { id: 15, url: 'img/15.jpg', keywords: [] },
     { id: 16, url: 'img/16.jpg', keywords: [] },
     { id: 17, url: 'img/17.jpg', keywords: [] },
+    { id: 18, url: 'img/18.jpg', keywords: [] },
+    { id: 19, url: 'img/19.jpg', keywords: [] },
+    { id: 20, url: 'img/20.jpg', keywords: [] },
+    { id: 21, url: 'img/21.jpg', keywords: [] },
+    { id: 22, url: 'img/22.jpg', keywords: [] },
+    { id: 23, url: 'img/23.jpg', keywords: [] },
+    { id: 24, url: 'img/24.jpg', keywords: [] },
 ]
 
 function getImgs() {
