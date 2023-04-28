@@ -10,6 +10,7 @@ function onInit() {
   gElCanvas = document.querySelector('.canvas')
   gCtx = gElCanvas.getContext('2d')
   renderGallery()
+  renderSaved()
   addListeners()
   renderCanvas()
   resizeCanvas(1)
@@ -50,6 +51,15 @@ function onOpenGallery() {
   elGallery.style.display = 'block'
 }
 
+function onOpenSaved() {
+  const elGallery = document.querySelector('.gallery-page-wrapper')
+  const elEditor = document.querySelector('.editor-page-wrapper')
+  const elSaved = document.querySelector('.saved-page-wrapper')
+  elEditor.style.display = 'none'
+  elGallery.style.display = 'none'
+  elSaved.style.display = 'block'
+}
+
 function resizeCanvas(ratio) {
   const elContainer = document.querySelector('.canvas-container')
   gElCanvas.width = elContainer.offsetWidth
@@ -73,7 +83,7 @@ function renderGallery() {
   const imgs = getImgs()
   const elGallery = document.querySelector('.gallery')
   const imgsStr = imgs.map(img => {
-    return `<li onClick="onSetImg(${img.id})"><img class="gallery-img" src="${img.url}" /> </li>`
+    return `<li onclick="onSetImg(${img.id})"><img class="gallery-img" src="${img.url}" /></li>`
   })
   imgsStr.unshift('<ul class="gallery-grid">')
   imgsStr.push('</ul>')
@@ -186,7 +196,7 @@ function onFlexible() {
       getRandomIntInclusive(30, 40),
       getRandomColor(),
       getRandomColor(),
-      {x: 250, y: i === 0 ? 100 : 250}
+      { x: 250, y: i === 0 ? 100 : 250 }
     )
     randLines.push(randLine)
   }

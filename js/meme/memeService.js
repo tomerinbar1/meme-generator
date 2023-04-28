@@ -3,6 +3,7 @@
 const gMeme = {
   selectedImgId: 0,
   selectedLineIdx: 0,
+  saveBase: '',
   lines: [
     {
       txt: 'I eat Spagetti',
@@ -23,6 +24,7 @@ const gMeme = {
       strokeStyle: 'black',
       pos: { x: 250, y: 300 },
       isDrag: false,
+      txtWidth: 0,
     },
   ],
 }
