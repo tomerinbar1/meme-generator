@@ -13,7 +13,6 @@ function onSetImg(imgId) {
 }
 
 function onOpenSavedMeme(imgId) {
-    console.log(imgId)
     openSaveMeme(imgId)
     onOpenEditor()
     renderInputValue()
@@ -82,6 +81,8 @@ function onDeleteText() {
 }
 
 function onDown(ev) {
+    const meme = getMeme()
+    if(!meme.lines.length) return
     const pos = getEvPos(ev)
     if (!isLineClicked(pos)) return
     setLineDrag(true)
@@ -91,6 +92,7 @@ function onDown(ev) {
 
 function onMove(ev) {
     const meme = getMeme()
+    if(!meme.lines.length) return
     const isDrag = meme.lines[meme.selectedLineIdx].isDrag
     if (!isDrag) return
     const pos = getEvPos(ev)
@@ -102,6 +104,8 @@ function onMove(ev) {
 }
 
 function onUp() {
+    const meme = getMeme()
+    if(!meme.lines.length) return
     setLineDrag(false)
     document.body.style.cursor = 'grab'
 }

@@ -25,13 +25,13 @@ let gMeme = {
             strokeStyle: 'black',
             pos: {x: 250, y: 300},
             isDrag: false,
-            txtWidth: 0,
+            textWidth: 0,
         },
     ],
 }
 
 
-function createLine(txt = '', size, color, strokeStyle, pos) {
+function createLine(txt = '', size = 40, color = 'white', strokeStyle = 'black', pos = {x: 250, y: 100}) {
     return {
         txt,
         size,
@@ -41,7 +41,7 @@ function createLine(txt = '', size, color, strokeStyle, pos) {
         strokeStyle,
         pos,
         isDrag: false,
-        txtWidth: 0,
+        textWidth: 0,
     }
 }
 
@@ -87,8 +87,6 @@ function setImg(imgId) {
 
 function openSaveMeme(imgId) {
     const loadedMemes = loadFromStorage(KEY_MEMES)
-    console.log(loadedMemes)
-    console.log(imgId)
     const meme = loadedMemes.find((meme) => meme.id === imgId)
     gMeme = meme
 }
@@ -121,9 +119,9 @@ function switchLine() {
 }
 
 function changeAlign(dir, elCanvasWidth) {
-    const {pos, txtWidth} = gMeme.lines[gMeme.selectedLineIdx]
-    if (dir === 'left') pos.x = 10 + txtWidth / 2
-    else if (dir === 'right') pos.x = elCanvasWidth - 10 - txtWidth / 2
+    const {pos, textWidth} = gMeme.lines[gMeme.selectedLineIdx]
+    if (dir === 'left') pos.x = 10 + textWidth / 2
+    else if (dir === 'right') pos.x = elCanvasWidth - 10 - textWidth / 2
     else pos.x = elCanvasWidth / 2
 }
 
@@ -169,10 +167,10 @@ function getEvPos(ev) {
 function isLineClicked(clickedPos) {
     let isLineClicked = false
     gMeme.lines.forEach((line, idx) => {
-        const {pos, size, txtWidth} = line
+        const {pos, size, textWidth} = line
         if (
-            clickedPos.x > pos.x - txtWidth / 2 &&
-            clickedPos.x < pos.x + txtWidth / 2 &&
+            clickedPos.x > pos.x - textWidth / 2 &&
+            clickedPos.x < pos.x + textWidth / 2 &&
             clickedPos.y > pos.y - size &&
             clickedPos.y < pos.y
         ) {

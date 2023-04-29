@@ -104,11 +104,12 @@ function renderGallery() {
 
 function drawText() {
     const meme = getMeme()
+
     meme.lines.forEach(line => {
         gCtx.beginPath()
         gCtx.font = `${line.size}px ${line.font}`
-        const txtWidth = gCtx.measureText(line.txt).width
-        line.txtWidth = txtWidth
+        const textWidth = gCtx.measureText(line.txt).width
+        line.textWidth = textWidth
         gCtx.textBaseline = 'alphabetic'
 
         gCtx.fillStyle = line.color
@@ -127,8 +128,8 @@ function markLine() {
         if (idx === meme.selectedLineIdx) {
             gCtx.beginPath()
             var rectY = line.pos.y - line.size
-            var rectX = line.pos.x - line.txtWidth / 2
-            var rectWidth = line.txtWidth
+            var rectX = line.pos.x - line.textWidth / 2
+            var rectWidth = line.textWidth
             var rectHeight = 1.5 * line.size
             gCtx.lineWidth = 3
             gCtx.rect(rectX - 10, rectY, rectWidth + 20, rectHeight)
