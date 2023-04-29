@@ -5,7 +5,6 @@
   margin-block-start: 50px;
   gap: 50px;
 }
-
 .meme-editor {
   display: flex;
   flex-direction: column;
@@ -16,7 +15,6 @@
   gap: 10px;
   max-height: 350px;
 }
-
 .edit-btn {
   display: inline-block;
   padding: 10px 10px;
@@ -29,23 +27,18 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
-
 .edit-btn:hover {
   background-color: #e0e0e0;
 }
-
 .edit-btn:focus {
   outline: none;
 }
-
 .edit-btn:active {
   transform: translateY(1px);
 }
-
 .a-btn {
   font-size: 40px;
 }
-
 .fontSelector {
   display: inline-block;
   padding: 12px 24px;
@@ -58,11 +51,9 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
-
 .fontSelector:hover {
   background-color: #e0e0e0;
 }
-
 .textInput {
   display: block;
   width: 100%;
@@ -77,12 +68,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
 }
-
 .textInput:focus {
   outline: none;
   box-shadow: 0 0 0 2px #007bff;
 }
-
 .palette[type='color'] {
   border: none;
   width: 35px;
@@ -92,18 +81,14 @@
   background: none;
   cursor: pointer;
 }
-
 .palette[type='color']::-webkit-color-swatch-wrapper {
   padding: 0;
 }
-
 .palette[type='color']::-webkit-color-swatch {
   border: none;
   border-radius: 50%;
 }
-
 .textFontColor {
     display: flex;
     align-items: center;
-    
 }

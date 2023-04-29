@@ -1,63 +1,58 @@
-.gallery-grid, .saved {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    margin: 32px 50px;
-    list-style-type: none;
-    overflow-y: scroll;
-    max-height: calc(100vh - 300px);
+.gallery-grid,
+.saved {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin: 0px 50px;
+  list-style-type: none;
+  overflow-y: scroll;
+  max-height: calc(100vh - 300px);
 }
-
 .flexible {
-    margin-top: 10px;
-    margin-inline-start: 50px;
-    align-items: center;
-    background-color: #0a66c2;
-    border-radius: 1em;
-    color: #ffffff;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: lato, sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    justify-content: center;
-    line-height: 20px;
-    max-width: 480px;
-    min-height: 40px;
-    overflow: hidden;
-    padding-left: 20px;
-    padding-right: 20px;
-    touch-action: manipulation;
-    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
-      box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
-      color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    user-select: none;
-    -webkit-user-select: none;
-  }
-
+  margin-top: 15px;
+  margin-inline-start: 65px;
+  align-items: center;
+  background-color: #0a66c2;
+  border-radius: 1em;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: lato, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  overflow: hidden;
+  padding-left: 20px;
+  padding-right: 20px;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+}
 .flexible:hover,
 .flexible:focus {
-    background-color: #16437e;
-    color: #ffffff;
+  background-color: #16437e;
+  color: #ffffff;
 }
-
 .flexible:active {
-    background: #09223b;
-    color: rgb(255, 255, 255, 0.7);
+  background: #09223b;
+  color: rgb(255, 255, 255, 0.7);
 }
-
 .flexible:disabled {
-    cursor: not-allowed;
-    background: rgba(0, 0, 0, 0.08);
-    color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.3);
 }
-
-.gallery-img{
-    cursor: pointer;
+.gallery-img {
+  cursor: pointer;
 }
-
 .gallery-img:hover {
-    transform: scale(1.1);
-    transition: transform 0.5s ease;
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
 }

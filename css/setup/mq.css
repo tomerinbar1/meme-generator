@@ -1,40 +1,37 @@
+/* Desktop */
+
 @media screen and (max-width: 560px) {
   .editor-page {
     flex-direction: column;
   }
-
   .canvas-container {
     width: 100%;
   }
-
   .canvas {
     margin-top: 0;
   }
-
   .logo {
     font-size: 22px;
   }
-
   .gallery-grid {
     grid-column: 1;
     gap: 10px;
     margin: 20px auto;
   }
-
   .editor-page {
     gap: 20px;
   }
-
   .meme-editor {
     bottom: 50px;
     margin: 0 auto;
     border: 0;
   }
-
   .navbar-wrapper {
     position: relative;
   }
-
+  .footer {
+    bottom: 0;
+  }
   .navbar {
     position: absolute;
     top: 80px;
@@ -47,18 +44,15 @@
   .about-page-wrapper {
     padding: 30px 0;
   }
-
   .about-container {
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
   }
-
   .about-container h1 {
     font-size: 2rem;
     margin-bottom: 10px;
   }
-
   .about-container p {
     font-size: 1.2rem;
     line-height: 2rem;
@@ -68,15 +62,21 @@
   }
 }
 
+/* Tablet*/
+
 @media screen and (min-width: 560px) {
   .nav-icon-2 {
     display: none;
   }
-
   .navbar {
     display: flex;
   }
+  .logo {
+    font-size: 25px;
+  }
 }
+
+/* Mobile */
 
 @media screen and (max-width: 920px) {
   .editor-page {
@@ -85,5 +85,12 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+  }
+  .flexible {
+    margin-inline-start: 7px;
+  }
+  .gallery-grid,
+  .saved {
+    margin: 5px auto;
   }
 }
