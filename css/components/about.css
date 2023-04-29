@@ -1,0 +1,29 @@
+.about-page-wrapper {
+    background-color: #f9f9f963;
+    padding: 50px 0;
+    height: 100vh;
+  }
+  
+  .about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .about-container h1 {
+    font-size: 3rem;
+    color: #58c93a;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.324);
+    stroke-width: 1;
+    margin-bottom: 20px;
+    font-family: lato, sans-serif;
+    letter-spacing: 0.1em;
+  }
+  
+  .about-container p {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    color: #666;
+    margin-bottom: 50px;
+  }
+  

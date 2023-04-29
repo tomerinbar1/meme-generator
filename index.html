@@ -11,81 +11,97 @@
 </head>
 
 <body onload="onInit()">
-    <div class="header site-layout">
-        <div class="navbar-wrapper layout-screen">
-            <div class="logo">Meme Generator</div>
-            <ul class="remove-list navbar">
-                <li onclick="onOpenGallery()"><span>Gallery</span></li>
-                <li onclick="onOpenEditor()"><span>Meme</span></li>
-                <li onclick="onOpenSaved()"><span>Saved</span></li>
-                <li><span>About</span></li>
-            </ul>
+<div class="header site-layout">
+    <div class="navbar-wrapper layout-screen">
+        <div class="logo">Meme Generator</div>
+        <ul class="remove-list navbar open-navbar">
+            <li onclick="onOpenGallery()"><span>Gallery</span></li>
+            <li onclick="onOpenEditor()"><span>Meme</span></li>
+            <li onclick="onOpenSaved()"><span>Saved</span></li>
+            <li onclick="onOpenAbout()"><span>About</span></li>
+        </ul>
+        <div class="icon nav-icon-2" onclick="toggleIcon(this)" hidden>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
-    <div class="site-layout">
-        <section class="editor-page-wrapper" hidden>
-            <div class="editor-page">
-                <div class="canvas-container">
-                    <canvas class="canvas" height="500" width="500" ></canvas>
-                </div>
-                <div class="meme-editor">
-                    <input oninput="onSetLineTxt(this.value)" type="text" name="" class="textInput" placeholder="Text Line">
-                    <div class="textSelect">
-                        <button onclick="onSwitchLine()" class="edit-btn fa-solid fa-repeat remove-button-style"></button>
-                        <button onclick="onMoveUp()" class="edit-btn fa-solid fa-arrow-up remove-button-style" ></button>
-                        <button onclick="onMoveDown()" class="edit-btn fa-solid fa-arrow-down remove-button-style" ></button>
-                        <button onclick="onaddLine()" class="edit-btn remove-button-style">Add Text</button>
-                        <button onclick="onDeleteText()" class="edit-btn fa-sharp fa-solid fa-trash remove-button-style"></button>
-                    </div>
-                    <div class="textSet">
-                        <button onclick="onIncreaseSize()" class="edit-btn fa-solid fa-plus remove-button-style" ></button>
-                        <button onclick="onDecreaseSize()" class="edit-btn fa-solid fa-minus remove-button-style"></button>
-                        <button onclick="onChangeAlign('left')" class="edit-btn fa-solid fa-align-left remove-button-style"></button>
-                        <button onclick="onChangeAlign('center')" class="edit-btn fa-solid fa-align-center remove-button-style"></button>
-                        <button onclick="onChangeAlign('right')" class="edit-btn fa-solid fa-align-right remove-button-style" ></button>
-                    </div>
-                    <div class="textFontColor">
-                        <select name="" class="fontSelector">
-                            <option value="" selected="true" disabled="disabled">Font</option>
-                            <option value="impact">Impact</option>
-                            <option value="serif">Serif</option>
-                        </select>
-                        <input oninput="onChangeTextColor(this.value)" class="remove-button-style palette" type="color" value="#FFFFFF" id="fill">
-                        <input oninput="onChangeStroke(this.value)" class="remove-button-style palette" type="color" value="#00000" id="stroke">
-                    </div>
-                    <div class="emojis"></div>
-                    <div class="a-btn">
-                        <a href="#" onclick="downloadImg(this)" download="my-img.jpg" class="fa-solid fa-download"></a>
-                        <a href="#" onclick="onUploadImg()" class="fa-brands fa-facebook"></a>
-                        <button onclick="onSaveMeme()" class="edit-btn remove-button-style">SAVE</button>
-                    </div>
-
-                </div>
+</div>
+<div class="site-layout">
+    <section class="editor-page-wrapper" hidden>
+        <div class="editor-page">
+            <div class="canvas-container">
+                <canvas class="canvas" height="400" width="400"></canvas>
             </div>
-        </section>
+            <div class="meme-editor">
+                <input oninput="onSetLineTxt(this.value)" type="text" name="" class="textInput" placeholder="Text Line">
+                <div class="textSelect">
+                    <button onclick="onSwitchLine()" class="edit-btn fa-solid fa-repeat remove-button-style"></button>
+                    <button onclick="onMoveUp()" class="edit-btn fa-solid fa-arrow-up remove-button-style"></button>
+                    <button onclick="onMoveDown()" class="edit-btn fa-solid fa-arrow-down remove-button-style"></button>
+                    <button onclick="onaddLine()" class="edit-btn remove-button-style">Add Text</button>
+                    <button onclick="onDeleteText()"
+                            class="edit-btn fa-sharp fa-solid fa-trash remove-button-style"></button>
+                </div>
+                <div class="textSet">
+                    <button onclick="onIncreaseSize()" class="edit-btn fa-solid fa-plus remove-button-style"></button>
+                    <button onclick="onDecreaseSize()" class="edit-btn fa-solid fa-minus remove-button-style"></button>
+                    <button onclick="onChangeAlign('left')"
+                            class="edit-btn fa-solid fa-align-left remove-button-style"></button>
+                    <button onclick="onChangeAlign('center')"
+                            class="edit-btn fa-solid fa-align-center remove-button-style"></button>
+                    <button onclick="onChangeAlign('right')"
+                            class="edit-btn fa-solid fa-align-right remove-button-style"></button>
+                </div>
+                <div class="textFontColor">
+                    <select name="" class="fontSelector">
+                        <option value="" selected="true" disabled="disabled">Font</option>
+                        <option value="impact">Impact</option>
+                        <option value="serif">Serif</option>
+                    </select>
+                    <input oninput="onChangeTextColor(this.value)" class="remove-button-style palette" type="color"
+                           value="#FFFFFF" id="fill">
+                    <input oninput="onChangeStroke(this.value)" class="remove-button-style palette" type="color"
+                           value="#00000" id="stroke">
+                </div>
+                <div class="emojis"></div>
+                <div class="a-btn">
+                    <a href="#" onclick="downloadImg(this)" download="my-img.jpg" class="fa-solid fa-download"></a>
+                    <a href="#" onclick="onUploadImg()" class="fa-brands fa-facebook"></a>
+                    <button onclick="onSaveMeme()" class="edit-btn remove-button-style">SAVE</button>
+                </div>
 
-        <section class="gallery-page-wrapper">
-            <button onclick="onFlexible()" class="flexible remove-button-style">I'm Flexible!</button>
-            <div class="gallery"></div>
-        </section>
-        
-
-        <section class="saved-page-wrapper">
-            <div class="saved-container"></div>
-        </section>
-    </div>
-    <footer class="footer">
-        <div>
-            <h4>All rights reseved to Tomer Inbar</h4>
+            </div>
         </div>
-    </footer>
+    </section>
 
-    <script src="js/service/localStorage.js"></script>
-    <script src="js/service/util.js"></script>
-    <script src="js/meme/memeService.js"></script>
-    <script src="js/gallery/galleryService.js"></script>
-    <script src="js/meme/memeController.js"></script>
-    <script src="js/main.js"></script>
+    <section class="gallery-page-wrapper">
+        <button onclick="onFlexible()" class="flexible remove-button-style">I'm Flexible!</button>
+        <div class="gallery"></div>
+    </section>
+
+    <section class="saved-page-wrapper">
+        <div class="saved-container"></div>
+    </section>
+    
+    <section class="about-page-wrapper" hidden>
+        <div class="about-container">
+            <h1>About</h1>
+            <p>Meme generation has become a popular pastime for many internet users, and now with the advent of the app, it has become even easier and more accessible. This app offers a wide variety of meme templates and customization options, allowing users to create their own unique and hilarious memes in just a few clicks. Whether you're a seasoned meme creator or just starting out, this app has everything you need to bring your memes to life. With its user-friendly interface and endless possibilities, this app is sure to become a favorite among meme enthusiasts everywhere. So why wait? Download the app today and start creating your own viral memes!</p>
+    </section>
+</div>
+<footer class="footer">
+    <div>
+        <h4>All rights reseved to Tomer Inbar</h4>
+    </div>
+</footer>
+
+<script src="js/service/localStorage.js"></script>
+<script src="js/service/util.js"></script>
+<script src="js/meme/memeService.js"></script>
+<script src="js/gallery/galleryService.js"></script>
+<script src="js/meme/memeController.js"></script>
+<script src="js/main.js"></script>
 </body>
 
 </html>

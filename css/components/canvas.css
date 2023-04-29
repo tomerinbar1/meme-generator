@@ -1,6 +1,10 @@
-.canvas-container {
-  height: 500px;
-  width: 500px;
+.canvas {
   display: flex;
-  align-items: center;;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.canvas-container {
+  height: 400px;
+  width: 400px;
 }

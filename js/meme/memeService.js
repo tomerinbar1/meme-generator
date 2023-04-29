@@ -13,7 +13,7 @@ let gMeme = {
             color: 'white',
             font: 'impact',
             strokeStyle: 'black',
-            pos: {x: 250, y: 100},
+            pos: {x: 200, y: 100},
             isDrag: false,
         },
         {
@@ -23,7 +23,7 @@ let gMeme = {
             color: 'white',
             font: 'impact',
             strokeStyle: 'black',
-            pos: {x: 250, y: 300},
+            pos: {x: 200, y: 250},
             isDrag: false,
             textWidth: 0,
         },
