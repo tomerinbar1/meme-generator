@@ -107,7 +107,7 @@ function onUp() {
     const meme = getMeme()
     if(!meme.lines.length) return
     setLineDrag(false)
-    document.body.style.cursor = 'grab'
+    document.body.style.cursor = 'pointer'
 }
 
 function onSaveMeme() {
