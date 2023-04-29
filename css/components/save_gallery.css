@@ -1,0 +1,11 @@
+.gallery-saved-grid, .saved {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  gap: 20px;
+  padding: 0;
+  margin: 32px 50px;
+  list-style-type: none;
+  overflow-y: scroll;
+  max-height: calc(100vh - 200px);
+}
+

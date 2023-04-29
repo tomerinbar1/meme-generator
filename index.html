@@ -57,7 +57,7 @@
                     <div class="a-btn">
                         <a href="#" onclick="downloadImg(this)" download="my-img.jpg" class="fa-solid fa-download"></a>
                         <a href="#" onclick="onUploadImg()" class="fa-brands fa-facebook"></a>
-                        <button onclick="saveToStorage()" class="edit-btn remove-button-style">SAVE</button>
+                        <button onclick="onSaveMeme()" class="edit-btn remove-button-style">SAVE</button>
                     </div>
 
                 </div>
@@ -70,7 +70,8 @@
         </section>
 
         <section class="saved-page-wrapper">
-            <div class="saved"></div>
+            <div class="saved-container"></div>
+        </section>
     </div>
     <footer class="footer">
         <div>
@@ -78,11 +79,9 @@
         </div>
     </footer>
 
-    <script src="js/localStorage.js"></script>
-    <script src="js/util.js"></script>
-    <script src="js/saved/saved-service.js"></script>
+    <script src="js/service/localStorage.js"></script>
+    <script src="js/service/util.js"></script>
     <script src="js/meme/memeService.js"></script>
-    <script src="js/saved/saved-controller.js"></script>
     <script src="js/gallery/galleryService.js"></script>
     <script src="js/gallery/galleryController.js"></script>
     <script src="js/meme/memeController.js"></script>
