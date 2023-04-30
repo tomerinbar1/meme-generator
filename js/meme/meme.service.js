@@ -11,6 +11,7 @@ let gMeme = {
 function createLine(
   txt = '',
   size = 50,
+  align = 'center',
   color = 'white',
   strokeStyle = 'black',
   pos = { x: getCenterXpos(), y: getCenterYpos()}
@@ -18,7 +19,7 @@ function createLine(
   return {
     txt,
     size,
-    align: 'center',
+    align,
     color,
     font: 'impact',
     strokeStyle,
@@ -63,7 +64,7 @@ function getRandomText() {
 }
 
 function setLineTxt(txt) {
-  if (gMeme.lines.length > 2) return
+  if (gMeme.lines.length >= 2) return
   if (gMeme.lines.length === 0) {
     const newTextLine = createLine(txt)
     gMeme.lines.push(newTextLine)
@@ -115,6 +116,7 @@ function switchLine() {
 
 function changeAlign(dir, elCanvasWidth) {
   const { pos, textWidth } = gMeme.lines[gMeme.selectedLineIdx]
+  console.log(pos, textWidth);
   if (dir === 'left') pos.x = 10 + textWidth / 2
   else if (dir === 'right') pos.x = elCanvasWidth - 10 - textWidth / 2
   else pos.x = elCanvasWidth / 2
@@ -135,6 +137,7 @@ function addLine() {
   const newTextLine = createLine()
   newTextLine.txt = newLine
   gMeme.lines.push(newTextLine)
+  // elNewTxt.value = ''
 }
 
 function deleteText() {

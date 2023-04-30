@@ -153,8 +153,8 @@ function drawText() {
     gCtx.fillStyle = `${line.color}`
     gCtx.lineWidth = 1
     gCtx.textAlign = `${line.align}`
-    gCtx.fillText(line.txt, getCenterXpos(), line.pos.y)
-    gCtx.strokeText(line.txt, getCenterXpos(), line.pos.y)
+    gCtx.fillText(line.txt, line.pos.x, line.pos.y)
+    gCtx.strokeText(line.txt, line.pos.x, line.pos.y)
   })
 }
 
@@ -187,10 +187,10 @@ function renderSavedMemes() {
 }
 
 function onFlexible() {
+  const elNav = document.querySelector('.navbar')
+  toggleIcon(elNav)
   isFlex = true
   const meme = getMeme()
-  const lines = meme.lines
-  lines.splice(0, lines.length)
   const imgs = getImgs()
   const randImgId = getRandomIntInclusive(0, imgs.length - 1)
   onSetImg(randImgId)
@@ -199,10 +199,11 @@ function onFlexible() {
   for (let i = 0; i < lineCount; i++) {
     const randLine = createLine(
       getRandomText(),
-      getRandomIntInclusive(30, 40),
+      getRandomIntInclusive(30, 50),
+      'center',
       getRandomColor(),
       getRandomColor(),
-      { x: 250, y: i === 0 ? 100 : 250 }
+      { x: getCenterXpos(), y: i === 0 ? 100 : 450 }
     )
     randLines.push(randLine)
   }
