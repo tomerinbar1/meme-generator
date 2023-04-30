@@ -9,6 +9,10 @@
   overflow-y: scroll;
   max-height: calc(100vh - 300px);
 }
+::-webkit-scrollbar {
+  display: none;
+  overflow: overlay;
+}
 .flexible {
   margin-top: 15px;
   margin-inline-start: 65px;

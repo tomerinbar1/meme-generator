@@ -72,19 +72,24 @@
     display: flex;
   }
   .logo {
-    font-size: 25px;
+    font-size: 30px;
   }
 }
 
 /* Mobile */
 
 @media screen and (max-width: 920px) {
+  .canvas-container {
+    max-width: 100%;
+    padding-block: 20px;
+  }
   .editor-page {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin: 0;
   }
   .flexible {
     margin-inline-start: 7px;
@@ -92,5 +97,24 @@
   .gallery-grid,
   .saved {
     margin: 5px auto;
+  }
+  .editor-page {
+    display: flex;
+  }
+  .meme-editor {
+    width: 90%;
+    height: 100%;
+    row-gap: 10px;
+    padding: 0 10px;
+  }
+  .edit-btn {
+    font-size: 25px;
+  }
+  .footer {
+    bottom: 0;
+    font-size: 1em;
+  }
+  .canvas {
+    width: 100%;
   }
 }

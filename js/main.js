@@ -12,14 +12,14 @@ function onInit() {
   renderGallery()
   addListeners()
   renderCanvas()
-  resizeCanvas(1)
+  resizeCanvas()
 }
 
 function addListeners() {
   addMouseListeners()
   addTouchListeners()
   window.addEventListener('resize', () => {
-    resizeCanvas(1)
+    resizeCanvas()
     renderCanvas()
   })
 }
@@ -43,54 +43,67 @@ function toggleIcon(elNav) {
 }
 
 function onOpenEditor() {
-  const elGallery = document.querySelector('.gallery-page-wrapper')
-  const elEditor = document.querySelector('.editor-page-wrapper')
-  const elSaved = document.querySelector('.saved-page-wrapper')
-  const elAbout = document.querySelector('.about-page-wrapper')
-  elAbout.style.display = 'none'
-  elSaved.style.display = 'none'
-  elGallery.style.display = 'none'
-  elEditor.style.display = 'block'
+  pagesNav('editor')
 }
 
 function onOpenGallery() {
-  const elGallery = document.querySelector('.gallery-page-wrapper')
-  const elEditor = document.querySelector('.editor-page-wrapper')
-  const elAbout = document.querySelector('.about-page-wrapper')
-  const elSaved = document.querySelector('.saved-page-wrapper')
-  elAbout.style.display = 'none'
-  elEditor.style.display = 'none'
-  elSaved.style.display = 'none'
-  elGallery.style.display = 'block'
+  pagesNav('gallery')
 }
 
 function onOpenSaved() {
-  const elGallery = document.querySelector('.gallery-page-wrapper')
-  const elEditor = document.querySelector('.editor-page-wrapper')
-  const elSaved = document.querySelector('.saved-page-wrapper')
-  const elAbout = document.querySelector('.about-page-wrapper')
-  elEditor.style.display = 'none'
-  elGallery.style.display = 'none'
-  elAbout.style.display = 'none'
-  elSaved.style.display = 'block'
+  pagesNav('saved')
   renderSavedMemes()
 }
 
 function onOpenAbout() {
-  const elAbout = document.querySelector('.about-page-wrapper')
+  pagesNav('about')
+}
+
+function pagesNav(elPage) {
   const elGallery = document.querySelector('.gallery-page-wrapper')
   const elEditor = document.querySelector('.editor-page-wrapper')
   const elSaved = document.querySelector('.saved-page-wrapper')
-  elEditor.style.display = 'none'
-  elGallery.style.display = 'none'
-  elSaved.style.display = 'none'
-  elAbout.style.display = 'block'
+  const elAbout = document.querySelector('.about-page-wrapper')
+  const elNav = document.querySelector('.navbar')
+
+  switch (elPage) {
+    case 'gallery':
+      elGallery.style.display = 'block'
+      elEditor.style.display = 'none'
+      elSaved.style.display = 'none'
+      elAbout.style.display = 'none'
+      toggleIcon(elNav)
+      break
+    case 'editor':
+      elGallery.style.display = 'none'
+      elEditor.style.display = 'block'
+      elSaved.style.display = 'none'
+      elAbout.style.display = 'none'
+      toggleIcon(elNav)
+      break
+    case 'saved':
+      elGallery.style.display = 'none'
+      elEditor.style.display = 'none'
+      elSaved.style.display = 'block'
+      elAbout.style.display = 'none'
+      toggleIcon(elNav)
+      break
+    case 'about':
+      elGallery.style.display = 'none'
+      elEditor.style.display = 'none'
+      elSaved.style.display = 'none'
+      elAbout.style.display = 'block'
+      toggleIcon(elNav)
+      break
+    default:
+      break
+  }
 }
 
 function resizeCanvas(ratio) {
   const elContainer = document.querySelector('.canvas-container')
-  gElCanvas.width = elContainer.offsetWidth
-  gElCanvas.height = elContainer.offsetHeight * ratio
+  gElCanvas.width = elContainer.clientWidth
+  gElCanvas.height = elContainer.clientWidth * ratio
 }
 
 function renderCanvas() {
@@ -129,28 +142,26 @@ function renderGallery() {
 
 function drawText() {
   const meme = getMeme()
-
   meme.lines.forEach(line => {
     gCtx.beginPath()
     gCtx.font = `${line.size}px ${line.font}`
     const textWidth = gCtx.measureText(line.txt).width
     line.textWidth = textWidth
     gCtx.textBaseline = 'alphabetic'
-
     gCtx.fillStyle = line.color
     gCtx.strokeStyle = `${line.strokeStyle}`
     gCtx.fillStyle = `${line.color}`
     gCtx.lineWidth = 1
     gCtx.textAlign = `${line.align}`
-    gCtx.fillText(line.txt, line.pos.x, line.pos.y)
-    gCtx.strokeText(line.txt, line.pos.x, line.pos.y)
+    gCtx.fillText(line.txt, getCenterXpos(), line.pos.y)
+    gCtx.strokeText(line.txt, getCenterXpos(), line.pos.y)
   })
 }
 
 function markLine() {
   const meme = getMeme()
   meme.lines.map((line, idx) => {
-    if (idx === meme.selectedLineIdx) {
+    if (idx === meme.selectedLineIdx && line.txt) {
       gCtx.beginPath()
       var rectY = line.pos.y - line.size
       var rectX = line.pos.x - line.textWidth / 2

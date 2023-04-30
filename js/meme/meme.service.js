@@ -5,37 +5,15 @@ let gMeme = {
   selectedImgId: 0,
   selectedLineIdx: 0,
   saveBase: '',
-  lines: [
-    {
-      txt: 'I eat Spagetti',
-      size: 50,
-      align: 'center',
-      color: 'white',
-      font: 'impact',
-      strokeStyle: 'black',
-      pos: { x: 200, y: 100 },
-      isDrag: false,
-    },
-    {
-      txt: 'but I love Pizza!',
-      size: 50,
-      align: 'center',
-      color: 'white',
-      font: 'impact',
-      strokeStyle: 'black',
-      pos: { x: 200, y: 250 },
-      isDrag: false,
-      textWidth: 0,
-    },
-  ],
+  lines: [],
 }
 
 function createLine(
   txt = '',
-  size = 40,
+  size = 50,
   color = 'white',
   strokeStyle = 'black',
-  pos = { x: 250, y: 100 }
+  pos = { x: getCenterXpos(), y: getCenterYpos()}
 ) {
   return {
     txt,
@@ -48,6 +26,18 @@ function createLine(
     isDrag: false,
     textWidth: 0,
   }
+}
+
+function getCenterXpos(){
+  const elContainer = document.querySelector('.canvas-container')
+  const canvasWidth = elContainer.offsetWidth
+  return canvasWidth / 2
+}
+
+function getCenterYpos(){
+  const elContainer = document.querySelector('.canvas-container')
+  const canvasHeight = elContainer.offsetHeight
+  return canvasHeight / 2
 }
 
 function getRandomText() {
